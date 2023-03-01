@@ -7,6 +7,44 @@
 #    (optional after everything((polishing)) )
 #    - add option to add photos to importing new items
 #    - add a additional catalogue link with the catagories that lead to the names of the items (clicking name leads to jumping to the place on the main page where the item is)
+#YOOO HERES THE APPENDINATOR
+#ITEM = []
+#hesthemap = {'type' : "",
+    'id': "",
+    'location_lastfound': "",
+    'is_ItemNamed' : False,
+    'item_name': "",
+    'nameOnItem':"",
+    'description' : ""}
+#typ = int(input('''Type "1" for clothing, type "2" for items: '''))
+#if typ == 1:
+    hesthemap['type'] = "1" 
+    typzoom = input('''Type "1" for Jackets, 
+    "2" for Ties/Accessories, 
+    "3" for PE related items,
+    "4" for Blazers: ''')
+    hesthemap['id'] = typzoom 
+#elif typ == 2:
+  hesthemap['type'] = "2" 
+  typzoom = input('''Type "1" for Water Bottles, 
+  "2" for Books,
+  "3" for Stationery,
+  "4" for Electronic items
+  "5" for Lunchboxes: ''')
+  hesthemap['id'] = typzoom 
+#location = input('Where was it found: ')
+#hesthemap['location_lastfound'] = location
+#name = input("What is the colour of the item and what is the item: ")
+#hesthemap['item_name'] = name
+#describir = input("What is a description of the item: ")
+#hesthemap['description'] = describir
+#yummy = input('''Does the item have a name (Y/N): ''')
+#if yummy == 'Y':
+    hesthemap['is_ItemNamed'] = True
+    Dean_The_Duck = input('What is the name: ')
+    hesthemap['nameOnItem'] = Dean_The_Duck
+#ITEM.append(hesthemap)
+
 
 from flask import Flask, redirect, url_for, render_template, request, flash
 
