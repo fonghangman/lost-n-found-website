@@ -1,3 +1,13 @@
+#PLEASE PUSH BACK TO GITHUB AFTER CODE
+#do that by finding the tabs (near console/shell or near webview and press git)
+#To Do List
+# - The database
+# - importing information to database
+# - Styling
+#    (optional after everything((polishing)) )
+#    - add option to add photos to importing new items
+#    - add a additional catalogue link with the catagories that lead to the names of the items (clicking name leads to jumping to the place on the main page where the item is)
+
 from flask import Flask, redirect, url_for, render_template, request, flash
 
 app = Flask(__name__)
