@@ -47,34 +47,27 @@
 
 
 from flask import Flask, redirect, url_for, render_template, request, flash
-
+from database import engine
+from sqlalchemy import text
 app = Flask(__name__)
 
-ITEMS = [
-  {
-    'type' : "1",
-    'id': "1",
-    'location_lastfound': "Sky Pitch",
-    'item_name': "Black jacket",
-    'nameOnItem':"Fong Hang",
-    'description' : "The name on the jacket is Fong Hang"
-  },
-  {
-   
-   
-    'type' : "2",
-    'id': "1",
-    'location_lastfound': "Sky Pitch",
-    'item_name': "Blue bottle",
-    'nameOnItem':"",
-    'description' : "The bottle is made of clear plastic"
-  }
-]
+
+
+def load_jobs_from_db():
+  with engine.connect() as conn:
+    result= conn.execute(text("select * from items"))
+
+  
+  items=[]
+  for row in result.all():
+    items.append(row)
+  return items
 
 @app.route("/")
 def items_list():
-    return render_template('home.html', 
-                           items=ITEMS)
+  items = load_jobs_from_db()
+  return render_template('home.html', 
+                           items=items)
 print(__name__)
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)

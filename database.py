@@ -1,5 +1,5 @@
-from sqlalchemy import create_engine, text
-import os
+#python database.py
+from sqlalchemy import create_engine
 db_connection_string = "mysql+pymysql://ox38amsbwam5dy1vrzto:pscale_pw_4tPLDauwvCdDcj34XpB4fHrBTDrGoGzKGnQPjny1Agk@ap-southeast.connect.psdb.cloud/kellettschool_codify_lostnfound?charset=utf8mb4"
 engine = create_engine(
   db_connection_string, 
@@ -10,9 +10,3 @@ engine = create_engine(
   })
 
 
-with engine.connect() as conn:
-  result = conn.execute(text("SELECT * FROM items"))
-  print("type(result):", type(result))
-  result_all = result.all()
-  print("type(result.all()):", type(result_all))
-  print("result.all():", result_all)
