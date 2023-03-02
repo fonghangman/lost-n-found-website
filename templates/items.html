@@ -1,0 +1,54 @@
+<div class="border-bottom" style="margin-bottom:16px;padding-bottom:8px;">
+    {% if '1' in item['type'] %}
+  
+      <div>Type: Clothing</div>
+
+    
+      {% if '1' in item['id'] %}
+        <div>ID: Jackets<div>
+      {% endif %}
+            
+      {% if '2' in item['id'] %}
+        <div>ID: Ties/Accessories<div>
+      {% endif %}
+            
+      {% if '3' in item['id'] %}
+        <div>ID: PE related clothing/gear<div>
+      {% endif %}
+            
+      {% if '4' in item['id'] %}
+        <div>ID: Blazers<div>
+      {% endif %}
+    {% endif %}
+            
+    {% if'2' in item['type']%}
+      <div>Type: Item</div>
+      {% if '1' in item['id']%}
+      <div>ID: Water Bottles</div>
+      {% endif %}
+      {% if '2' in item['id']%}
+      <div>ID: Books</div>
+      {% endif %}
+        {% if '3' in item['id']%}
+        <div>ID: Stationary</div>
+        {% endif %}
+        {% if '4' in item['id']%}
+        <div>ID: Electronics</div>
+        {% endif %}
+        {% if '5' in item['id']%}
+        <div>ID: Lunchboxes</div>
+        {% endif %}
+    {% endif %}
+            
+    {% if item['location_lastfound']|length > 0 %}
+      <div>Where the item was found: {{item['location_lastfound']}}</div>
+    {% endif %}
+    {% if not item['is_ItemNamed'] == False %}
+      <div>Name on item: {{item['nameOnItem']}}</div>
+    {% endif %}
+    {% if item['description']|length > 0 %}
+      <div>Description: {{item['description']}}</div>
+    {% endif %}
+  <br>
+</div>
+  
