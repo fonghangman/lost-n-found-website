@@ -38,12 +38,13 @@
         {% if '5' in item['id']%}
         <div>ID: Lunchboxes</div>
         {% endif %}
+          
     {% endif %}
             
     {% if item['location_lastfound']|length > 0 %}
       <div>Where the item was found: {{item['location_lastfound']}}</div>
     {% endif %}
-    {% if not item['is_ItemNamed'] == False %}
+    {% if not item['nameOnItem']|length < 1 %}
       <div>Name on item: {{item['nameOnItem']}}</div>
     {% endif %}
     {% if item['description']|length > 0 %}

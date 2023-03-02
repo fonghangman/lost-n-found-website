@@ -55,7 +55,6 @@ ITEMS = [
     'type' : "1",
     'id': "1",
     'location_lastfound': "Sky Pitch",
-    'is_ItemNamed' : True,
     'item_name': "Black jacket",
     'nameOnItem':"Fong Hang",
     'description' : "The name on the jacket is Fong Hang"
@@ -66,9 +65,8 @@ ITEMS = [
     'type' : "2",
     'id': "1",
     'location_lastfound': "Sky Pitch",
-    'is_ItemNamed' : False,
     'item_name': "Blue bottle",
-    'nameOnItem':False,
+    'nameOnItem':"",
     'description' : "The bottle is made of clear plastic"
   }
 ]
