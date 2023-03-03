@@ -1,4 +1,5 @@
 <div class="border-bottom" style="margin-bottom:16px;padding-bottom:8px;">
+    <h2>{{item.itemname}}</h2>
     {% if '1' in item['catagory'] %}
   
       <div>Type: Clothing</div>
@@ -48,6 +49,17 @@
     <div>Name on item: {{item['nameOnItem']}}</div>
     
     <div>Description: {{item['itemdescription']}}</div>
+
+    {% if item['isitemclaimed'] == '0' %}
+      <div>Item Not Claimed</div>
+      <form action="https://lost-n-found-website-1.fongngai.repl.co/item/{{item['id']}}">
+            <button class="btn btn-danger btn-lg">Reserve Item</button>
+      </form>
+    {% else %}
+      <div> Item is claimed</div>
+    {% endif %}
+      
+    
     
   <br>
 </div>

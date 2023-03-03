@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <h2>{{item.itemname}}</h2>
+    {% if '1' in item['catagory'] %}
+      {% if '1' in item['itemtype'] %}
+        <h3>Type: Clothing, ID: Jackets</h3>
+      {% endif %}
+            
+      {% if '2' in item['itemtype'] %}
+        <h3>Type: Clothing, ID: Ties/Accessories</h3>
+      {% endif %}
+            
+      {% if '3' in item['itemtype'] %}
+        <h3>Type: Clothing, ID: PE related clothing/gear</h3>
+      {% endif %}
+            
+      {% if '4' in item['itemtype'] %}
+        <h3>Type: Clothing, ID: Blazers</h3>
+      {% endif %}
+    {% endif %}
+            
+    {%if '2' in item['catagory']%}
+      {% if '1' in item['itemtype']%}
+      <h3>Type: Item, ID: Water Bottles</h3>
+      {% endif %}
+      {% if '2' in item['itemtype']%}
+      <h3>Type: Item, ID: Books</h3>
+      {% endif %}
+        {% if '3' in item['itemtype']%}
+        <h3>Type: Item, ID: Stationary</h3>
+        {% endif %}
+        {% if '4' in item['itemtype']%}
+        <h3>Type: Item, ID: Electronics</h3>
+        {% endif %}
+        {% if '5' in item['itemtype']%}
+        <h3>Type: Item, ID: Lunchboxes</h3>
+        {% endif %}
+    {% endif %}
+    <h2>Description</h2>
+    <p>{{item.itemdescription}}</p>
+    {% include "reserving_items.html" %}
+    <form action="https://lost-n-found-website-1.fongngai.repl.co">
+      <br>
+      <br>
+            <button class="btn btn-danger btn-lg">To Previous Page</button>
+        </form>
+  </body>
+</html>

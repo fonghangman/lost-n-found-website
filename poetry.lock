@@ -78,6 +78,25 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "mysqlclient"
+version = "2.1.1"
+description = "Python interface to MySQL"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "python-dotenv"
+version = "1.0.0"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
 name = "sqlalchemy"
 version = "2.0.4"
 description = "Database Abstraction Library"
@@ -137,7 +156,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "5f5c48c452a37992595383d83b403e15b5ac27c3073be0fed4f51d6d57a0fa69"
+content-hash = "0b5adc538f91b74aa81ebcf3434b17ebc285be382f66394c3560d720f2218e0c"
 
 [metadata.files]
 click = []
@@ -147,6 +166,8 @@ greenlet = []
 itsdangerous = []
 jinja2 = []
 markupsafe = []
+mysqlclient = []
+python-dotenv = []
 sqlalchemy = []
 typing-extensions = []
 werkzeug = []
