@@ -56,7 +56,7 @@
 #CONVERT TO HTML WITH FORM
 
 from flask import Flask, render_template, jsonify, request
-from database import engine, load_items_from_db, load_item_from_db, add_reservation_to_db
+from database import engine, load_items_from_db, load_item_from_db, add_reservation_to_db, add_new_item
 from sqlalchemy import text
 app = Flask(__name__)
 
@@ -98,7 +98,12 @@ def apply_to_item(id):
   return render_template('reserving_items_submitted.html', 
                          reservation=data,
                          item=item)
-
+@app.route("/newitem", methods=['post'])
+def newitem():
+  data = request.form
+  add_new_item(data)
+  return render_template('newitem_submitted.html', 
+                         newitemdata=data,)
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
 

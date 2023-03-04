@@ -32,6 +32,31 @@ def add_reservation_to_db(reservationid, data):
   with engine.connect() as conn:
     values={'full_name':data['full_name'],
             'email':data['email'],
-           'reservationidval':int(reservationid)}
-    query=text("UPDATE 'kellettschool_codify_lostnfound`.`items` SET isitemclaimed = '1', reserverfullname = :full_name, reserveremail = :email WHERE id = :reservationidval;")
-    result = conn.execute(query,values)
+           'reservationidval':reservationid}
+    query=text("UPDATE `kellettschool_codify_lostnfound`.`items` SET `isitemclaimed` = '1', `reserverfullname` = :full_name, `reserveremail` = :email WHERE (`id` = :reservationidval);")
+    conn.execute(query, values)
+def add_new_item(data):
+  with engine.connect() as conn:
+    if data['nameOnItem']=="":
+      values={'itemname':data['itemname'],
+             'catagory':data['catagory'],
+             'itemtype':data['type'],
+             'location_lastfound':data['location_lastfound'],
+             'nameOnItem':'No Name',
+             'itemdescription':data['itemdescription'],
+             'isitclaimed':'0'}
+      query=text("INSERT INTO `kellettschool_codify_lostnfound`.`items` (`itemname`, `catagory`, `itemtype`, `location_lastfound`, `nameOnItem`, `itemdescription`, `isitemclaimed`) VALUES (:itemname, :catagory, :itemtype, :location_lastfound, :nameOnItem, :itemdescription, :isitclaimed);")
+      conn.execute(query,values)
+    else:
+      values={'itemname':data['itemname'],
+             'catagory':data['catagory'],
+             'itemtype':data['type'],
+             'location_lastfound':data['location_lastfound'],
+             'nameOnItem':data['nameOnItem'],
+             'itemdescription':data['itemdescription'],
+             'isitclaimed':'0'}
+      query=text("INSERT INTO `kellettschool_codify_lostnfound`.`items` (`itemname`, `catagory`, `itemtype`, `location_lastfound`, `nameOnItem`, `itemdescription`, `isitemclaimed`) VALUES (:itemname, :catagory, :itemtype, :location_lastfound, :nameOnItem, :itemdescription, :isitclaimed);")
+      conn.execute(query,values)
+      
+    
+      

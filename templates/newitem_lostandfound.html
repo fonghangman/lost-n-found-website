@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script language="javascript" type="text/javascript">
+    function dynamicdropdown(listindex)
+    {
+        switch (listindex)
+        {
+        case "1" :
+            document.getElementById("type").options[0]=new Option("Select type","");
+            document.getElementById("type").options[1]=new Option("Jackets","1");
+            document.getElementById("type").options[2]=new Option("Ties or Accessories","2");
+            document.getElementById("type").options[3]=new Option("PE related clothing or gear","3");
+            document.getElementById("type").options[4]=new Option("Blazers","4");
+            break;
+        case "2" :
+            document.getElementById("type").options[0]=new Option("Select type","");
+            document.getElementById("type").options[1]=new Option("Water Bottles","1");
+            document.getElementById("type").options[2]=new Option("Books","2");
+            document.getElementById("type").options[3]=new Option("Stationary","3");
+            document.getElementById("type").options[4]=new Option("Electronics or Devices","4");
+            document.getElementById("type").options[5]=new Option("Lunchboxes","5");
+            break;
+        }
+        return true;
+    }
+    </script>
+  </head>
+  <body>
+  <h4>New Item</h4>
+  <form action="/newitem" method="post">
+    <div>
+    <label>Item name</label>
+    <input type='text' name="itemname" placeholder="Black Jacket">
+    </div>
+    
+    
+    <div class="category_div" id="category_div">Catagory:
+        <select id="catagory" name="catagory" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+        <option value="">Select catagory</option>
+        <option value="1">Clothing</option>
+        <option value="2">Item</option>
+        </select>
+    </div>
+    <div class="sub_category_div" id="sub_category_div">Type:
+        <script type="text/javascript" language="JavaScript">
+        document.write('<select name="type" id="type"><option value="">Select type</option></select>')
+        </script>
+        <noscript>
+        <select id="type" name="type">
+            <option value="open">Nothing</option>
+        </select>
+        </noscript>
+    </div>
+    
+    <div>
+      <label>Place Last Found</label>
+      <input type='text' name="location_lastfound" placeholder="Sky Pitch">
+    </div>
+    <div>
+      <label>Name on item (leave blank if nothing)</label>
+      <input type='text' name="nameOnItem" placeholder="Fong Hang">
+    </div>
+    <div>
+      <label>Give a description:</label>
+      <input type='text' name="itemdescription" placeholder="The jacket was black, made out of leather and is Brand X.">
+    </div>
+    <input type="submit" name="submit">
+  </form>
+  </body>
+</html>
