@@ -1,7 +1,7 @@
 <div class="border-bottom" style="margin-bottom:16px;padding-bottom:8px;">
-  {% if item['isitemclaimed'] == '0' %}
+  {% if item['isitemclaimed'] == '0' %}<!-- this loads only items that arent reserved -->
     <h2>{{item.itemname}}</h2>
-    {% if '1' in item['catagory'] %}
+    {% if '1' in item['catagory'] %}<!-- all below this narrows down and translate the data id into str text because storing as numbers are easier to see for me during development -->
   
       <div>Type: Clothing</div>
 
@@ -45,21 +45,17 @@
             
     {% if item['location_lastfound']|length > 0 %}
       <div>Where the item was found: {{item['location_lastfound']}}</div>
-    {% endif %}
+    
     
     <div>Name on item: {{item['nameOnItem']}}</div>
     
     <div>Description: {{item['itemdescription']}}</div>
 
-    {% if item['isitemclaimed'] == '0' %}
-      <div>Item Not Claimed</div>
       <form action="https://lost-n-found-website-1.fongngai.repl.co/item/{{item['id']}}">
             <button class="btn btn-danger btn-lg">Reserve Item</button>
       </form>
-    <br>
-    {% else %}
-      <div> Item is claimed</div>
     {% endif %}
+    <br>
   {% endif %}
   
     

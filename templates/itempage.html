@@ -3,7 +3,7 @@
   <head>
     
   </head>
-  <body>
+  <body><!-- shows item info and loads reservation form -->
     <h2>{{item.itemname}}</h2>
     {% if '0' in item['isitemclaimed'] %}
       {% if '1' in item['catagory'] %}
@@ -48,7 +48,8 @@
         <br>
         <br>
     {% else %}
-        <h2>Item is already reserved</h2>
+        <h2>Item is already reserved by {{item.reserverfullname}} </h2>
+        <h3>Email: {{item.reserveremail}}</h3>
     {% endif %}
       <form action="https://lost-n-found-website-1.fongngai.repl.co">
       <button class="btn btn-danger btn-lg">To Previous Page</button>

@@ -15,17 +15,16 @@
   <meta name="viewport" content="width=device-width">
   <title>Lost & Found Page </title>
   <link href="style.css" rel="stylesheet" type="text/css" />
-  <img src="image/logo.jpg" width="300" height="200">
 </head>
 <!---->
   
 <body>
   <div>
-    
+    <!-- this loads the items.html -->
     {% for item in items %}
       {% include 'items.html' %}
     {% endfor %}
   </div>
-  {% include 'newitem_lostandfound.html' %}
+  {% include 'newitem_lostandfound.html' %} <!-- this puts the html for the query of new item-->
 <html>
 <!DOCTYPE html>
